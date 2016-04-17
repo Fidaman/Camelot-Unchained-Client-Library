@@ -84,6 +84,7 @@ body {
     position: absolute;
     height: 85px;
     top: 40px;
+    display: none;
   }
 
   .buffs .icon {
@@ -143,11 +144,13 @@ body {
       label { color: #fd6000; }
       .bar { background-color: #411900; }
       .fill { background-color: #fd6000; }
+      display: none;
     }
     .temp {
       label { color: white; }
       .bar { background-color: #fe1f16; }
       .fill { background-color: #12a2ff; }
+      display: none;
     }
   }
 }
