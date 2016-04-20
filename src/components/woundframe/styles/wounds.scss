@@ -19,12 +19,13 @@ body {
   position: relative;
   width: 150px;
   background-color: rgba(0,0,0,0.8);
-  border: 1px solid rgba(255,255,255,0.3);
+  border: 1px solid rgba(255,255,255,0.1);
   padding: 10px;
   padding-bottom: 5px;
 
   /* Paper Doll Styles */
   .doll {
+    margin-top: 20px;
     width: 150px;
     height: 115px;
     position: relative;
@@ -84,6 +85,7 @@ body {
     position: absolute;
     height: 85px;
     top: 40px;
+    display: none;
   }
 
   .buffs .icon {
@@ -126,6 +128,7 @@ body {
         left: 30%;
         width: 70%;
         margin-top: 5px;
+        margin-left: 1%;
       }
     }
 
@@ -143,11 +146,13 @@ body {
       label { color: #fd6000; }
       .bar { background-color: #411900; }
       .fill { background-color: #fd6000; }
+      display: none;
     }
     .temp {
       label { color: white; }
       .bar { background-color: #fe1f16; }
       .fill { background-color: #12a2ff; }
+      display: none;
     }
   }
 }

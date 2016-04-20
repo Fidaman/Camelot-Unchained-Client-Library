@@ -20,9 +20,11 @@ export class Label extends React.Component<LabelProps, LabelState> {
     super(props);
   }
   render() {
+    const percentDurability = this.props.value / this.props.max * 100;
+    const percentDurabilityDisplay: string = Math.round(percentDurability) + '%';
     return (
       <label className={ 'label part-' + this.props.part }>
-        <span style={{ color: this.props.color }}>{this.props.value}</span>/{this.props.max}
+        <span style={{ color: this.props.color }}>{percentDurabilityDisplay}</span>
       </label>
     );
   }
