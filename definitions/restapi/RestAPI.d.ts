@@ -13,6 +13,7 @@ export declare function postReleasePlot(query: Object): Promise<any>;
 export declare function postRemoveQueuedBlueprint(query: Object): Promise<any>;
 export declare function postReorderBuildQueue(query: Object): Promise<any>;
 export declare function postGetQueueStatus(query: Object): Promise<any>;
+export * from './resources/Blueprints';
 export * from './resources/GameData';
 export * from './resources/Servers';
 export * from './resources/Characters';
