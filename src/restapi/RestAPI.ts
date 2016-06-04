@@ -51,6 +51,9 @@ export function postGetQueueStatus(query: Object) {
     return RestClientLegacy.postJSON('plot/getqueuestatus', true, false, query);
 }
 
+// Blueprints
+export * from './resources/Blueprints';
+
 // Game Data
 export * from './resources/GameData';
 

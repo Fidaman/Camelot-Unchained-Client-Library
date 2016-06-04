@@ -114,42 +114,60 @@ interface clientInterface {
   GetConfigVars(tag: configGroup): void;
   GetConfigVar(variable: string): void;
 
-  /* Building */
+  /* Building | CUBE */
   OnBuildingModeChanged(c: (buildingMode: boolean) => void): void;
+  
+  // responds with all blocks -- triggered by a call to 'RequestBlocks'
   OnReceiveBlocks(c: (buildingDict: any) => void): void;
-  OnReceiveScreenShot(c: (screenShotString: any) => void): void;
+  
+  // responds with all substance ids -- triggered by a call to 'RequestSubstances'
+  OnReceiveSubstances(c: (substances: any) => void): void;
+  
+  // responds with block ids for a specific substance last passed into 'BlockIDsforSubstanceID'
+  OnReceiveBlockIDs(c: (blockIds: [number]) => void): void;
+  
   OnReceiveBlockTags(c: (blockID: number, tagDict: any) => void): void;
+  OnReceiveScreenShot(c: (screenShotString: any) => void): void;
   OnCopyBlueprint(c: () => void): void;
   OnNewBlueprint(c: (index: number, name: string) => void): void;
   OnDownloadBlueprints(c: (charId: string) => void): void;
   OnUploadBlueprint(c: (charId: string, name: string, data: any) => void): void;
   OnBlueprintSelected(c: () => void): void;
+  OnBlockSelected(c: (blockID: number) => void): void;
+  
+  
   ToggleBuildingMode(): void;
   SetBuildingMode(newMode: number): void;
-  RequestBlocks(): void;
-  RequestBlockTags(blockID: number): void;
-  ChangeBlockType(newType: number): void;
-  SelectBlueprint(index: number): void;
-  SaveBlueprint(name: string): void;
-  DeleteLocalBlueprint(name: string): void;
-  RequestBlueprints(): void;
-  DownloadBlueprints(): void;
-  ReceiveBlueprintFromServer(name: string, cellData: any, id: string): void;
   CommitBlock(): void;
   CancelBlockPlacement(): void;
   BlockRotateX(): void;
   BlockRotateY(): void;
   BlockRotateZ(): void;
-  RemoveIslands(): void;
-  ApplyStability(): void;
   BlockFlipX(): void;
   BlockFlipY(): void;
   BlockFlipZ(): void;
   CopyBlueprint(): void;
   PasteBlueprint(): void;
-
+  RemoveIslands(): void;
+  ApplyStability(): void;
+  TestStability(): void;
+  SaveBuilding(): void;
+  ToggleStabilityLoop(): void;
+  RequestBlocks(): void;
+  RequestSubstances(): void;
+  BlockIDsforSubstanceID(substanceID: number): void;
+  RequestBlockTags(blockID: number): void;
+  ChangeBlockType(newType: number): void;
   OpenScreenshotShare(): void;
   TakeScreenshot(): void;
+  
+  SelectBlueprint(index: number): void;
+  RequestBlueprints(): void;
+  SaveBlueprint(name: string): void;
+  DownloadBlueprints(): void;
+  ReceiveBlueprintFromServer(name: string, cellData: any, id: string): void;
+  DeleteLocalBlueprint(name: string): void;
+  
 
   /* Announcement */
 

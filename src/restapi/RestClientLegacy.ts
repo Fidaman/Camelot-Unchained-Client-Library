@@ -61,10 +61,10 @@ if (hasClientAPI()) {
 }
 
 function makeAPIUrl(endpoint: string, useHttps: boolean): string {
-  if (endpoint.indexOf('://') != -1) return; // we already have a fully formed url, skip
+  if (endpoint.indexOf('://') != -1) return endpoint; // we already have a fully formed url, skip
   var protocol = useHttps ? 'https' : 'http';
   var port = useHttps ? '4443' : '8000';
-  return protocol + '://' + settings.url + ':' + port + '/api/' + endpoint;
+  return protocol + '://' + settings.url + ':' + port + '/api/' + endpoint.replace(/^\//, '');
 }
 
 export function getJSON(endpoint: string, useHttps: boolean = false, query: any = {}): Promise<any> {

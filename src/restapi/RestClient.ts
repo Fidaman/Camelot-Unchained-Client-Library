@@ -53,13 +53,13 @@ class Settings {
 const settings = new Settings(4);
 
 function makeAPIUrl(endpoint: string): string {
-  if (endpoint.indexOf('://') != -1) return; // we already have a fully formed url, skip
+  if (endpoint.indexOf('://') != -1) return endpoint; // we already have a fully formed url, skip
   let url = settings.url;
   // only add port if it is required
   if ((url.indexOf('https://') === 0 && settings.port !== 443) || (url.indexOf('http://') === 0 && settings.port !== 80)) {
     url = url + ':' + settings.port;
   }
-  return url + '/' + endpoint.replace(/^\//g, '');
+  return url + '/' + endpoint.replace(/^\//, '');
 }
 
 function addDefaultHeaders(headers: any, requireAuth: boolean, version: number = 1): any {
