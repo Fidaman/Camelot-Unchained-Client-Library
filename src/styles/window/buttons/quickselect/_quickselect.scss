@@ -5,8 +5,8 @@
  */
 
 .quickselect-default {
-  @extend .downdrop-content;
-  @extend .z-depth-1;
+  @extend .downdrop-content !optional;
+  @extend .z-depth-1 !optional;
   background-color: transparent;
   margin: 0;
   display: none;
