@@ -5,11 +5,8 @@
  */
 
 @mixin cu-window-header-bg($default: false) {
-  @if ($default) {
-    $selector: '.cu-window-header';
-  } @else {
-    $selector: '&.cu-window-header';
-  }
+  $selector: if($default, '.cu-window-header', '&.cu-window-header');
+
   #{$selector} {
     &:before {
       @content;
@@ -18,11 +15,9 @@
 }
 
 @mixin cu-window-footer-bg($default: false) {
-  @if ($default) {
-    $selector: '.cu-window-footer';
-  } @else {
-    $selector: '&.cu-window-footer';
-  }
+
+  $selector: if($default, '.cu-window-footer', '&.cu-window-footer');
+
   #{$selector} {
     &:before {
       @content;

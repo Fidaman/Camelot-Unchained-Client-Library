@@ -4,6 +4,7 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
 import { Promise } from 'es6-promise';
+export declare function getMessageOfTheDay(): Promise<any>;
 export declare function getCraftedAbilities(loginToken: string, characterID: string): Promise<any>;
 export declare function getControlGame(includeControlPoints?: boolean): Promise<any>;
 export declare function getAllPlayers(): Promise<any>;

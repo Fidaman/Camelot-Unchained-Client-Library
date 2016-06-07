@@ -94,11 +94,9 @@
       margin-bottom: 15px;
       input[type=range] {
         @include appearance(none);
-        @if ($light) {
-          $color: $color-gray-dark;
-        } @else {
-          $color: $background-color;
-        }
+
+        $color: if($light,  $color-gray-dark, $background-color);
+
         color: $text-color;
         width: 100%;
         background: none;
@@ -195,11 +193,9 @@
       }
       .cu-form-range {
         input[type=range] {
-          @if ($light) {
-            $color: $color-gray-dark;
-          } @else {
-            $color: $color-dark;
-          }
+
+          $color: if($light,  $color-gray-dark, $color-dark);
+
           border-left: 3px solid $color;
           border-right: 3px solid $color;
           &::-webkit-slider-runnable-track {

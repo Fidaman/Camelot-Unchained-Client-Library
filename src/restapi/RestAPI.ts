@@ -6,6 +6,11 @@
 
 import {Promise} from 'es6-promise';
 import * as RestClientLegacy from './RestClientLegacy';
+import * as RestClient from './RestClient';
+
+export function getMessageOfTheDay(){
+  return RestClient.getJSON('messageoftheday');
+}
 
 // TODO update this to use new Rest Client
 export function getCraftedAbilities(loginToken: string, characterID: string) {
