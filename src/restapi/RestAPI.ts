@@ -10,7 +10,7 @@ import * as RestClient from './RestClient';
 
 export function getMessageOfTheDay()
 {
-    return RestClient.getJSON('messageoftheday');
+  return RestClient.getJSON('messageoftheday');
 }
 
 // TODO update this to use new Rest Client
