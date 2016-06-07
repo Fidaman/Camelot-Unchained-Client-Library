@@ -8,8 +8,7 @@ import {Promise} from 'es6-promise';
 import * as RestClientLegacy from './RestClientLegacy';
 import * as RestClient from './RestClient';
 
-export function getMessageOfTheDay()
-{
+export function getMessageOfTheDay(){
   return RestClient.getJSON('messageoftheday');
 }
 
