@@ -34,6 +34,7 @@ import * as React from 'react';
 
 export interface QuickSelectProps {
   items: Array<any>;
+  selectedItemIndex?: any;
   activeViewComponentGenerator: (item: any) => any;
   listViewComponentGenerator: (item: any) => any;
   onSelectedItemChanged: (item: any) => void;
@@ -69,12 +70,13 @@ class QuickSelect extends React.Component<QuickSelectProps, QuickSelectState> {
 
   render() {
     if (this.props.items.length == 0) return <div>No Elements</div>;
+    const selectedIndex = this.props.selectedItemIndex ? this.props.selectedItemIndex : this.state.selectedIndex;
     return(
       <div>
         <div className={'dropdown-button quickselect-auto-width'} data-beloworigin='true'
           data-constrainwidth='false' data-verticaloffset='0' data-activates={this.uniqueId}
           data-style={'quickselect-default'}>
-          {this.props.activeViewComponentGenerator(this.props.items[this.state.selectedIndex])}
+          {this.props.activeViewComponentGenerator(this.props.items[selectedIndex])}
         </div>
         <div id={this.uniqueId} className='quickselect-default'>
           {this.props.items.map(this.buildListItem)}
