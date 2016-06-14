@@ -6,17 +6,17 @@
 
 /**
  * Materialize dropdown inspired quickselect list.
- * 
+ *
  * *requires materialize js & css to be included on your html page.
- * 
+ *
  * USAGE:
- * 
+ *
  * class MyQuickSelect extends React.Component<any, any> {
  *   generateActiveView = (item: any) => {
  *     return <div>{item.foo}</div>;
  *   }
  *   generateListView = (item: any) => {
- *     return <div>{item.foo}</div>;  
+ *     return <div>{item.foo}</div>;
  *   }
  *   onSelectedItemChanged = (item: any) => {
  *     console.log('selected item is ' + item.foo);
@@ -27,7 +27,7 @@
           listViewComponentGenerator={this.generateListView} onSelectedItemChanged={this.onSelectedChannelChanged} />;
  *   }
  * }
- * 
+ *
  */
 
 import * as React from 'react';
@@ -47,19 +47,19 @@ export interface QuickSelectState {
 class QuickSelect extends React.Component<QuickSelectProps, QuickSelectState> {
   private static idCounter: number = 0;
   private uniqueId: string = 'QuickSelect-' + QuickSelect.idCounter++;
-  
+
   constructor(props: QuickSelectProps) {
     super(props);
     this.state = {
       selectedIndex: 0
     };
   }
-  
+
   onItemSelect = (item: any, itemIndex: number) => {
     this.setState({selectedIndex: itemIndex});
     this.props.onSelectedItemChanged(item);
   }
-  
+
   buildListItem = (item: any, itemIndex: number) => {
     return (
       <div key={itemIndex} onClick={this.onItemSelect.bind(this, item, itemIndex)} className='quickselect-auto-width'>
@@ -70,7 +70,7 @@ class QuickSelect extends React.Component<QuickSelectProps, QuickSelectState> {
 
   render() {
     if (this.props.items.length == 0) return <div>No Elements</div>;
-    const selectedIndex = this.props.selectedItemIndex ? this.props.selectedItemIndex : this.state.selectedIndex;
+    const selectedIndex = this.props.selectedItemIndex !== undefined ? this.props.selectedItemIndex : this.state.selectedIndex;
     return(
       <div>
         <div className={'dropdown-button quickselect-auto-width'} data-beloworigin='true'
