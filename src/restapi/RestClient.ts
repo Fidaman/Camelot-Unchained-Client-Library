@@ -30,6 +30,19 @@ class Settings {
         this.determineApiDetails();
       })
     }
+    else if ("patcherAPI" in window) {
+      // running under the patcher, loginToken is not yet available, so
+      // define apiToken as a getter and fetch loginToken when we actually
+      // need it.
+      const patcherAPI: any = (window as any).patcherAPI;
+      this.url = 'https://api.camelotunchained.com';
+      this.port = 443;
+      Object.defineProperty(this, "apiToken", {
+        get: function() {
+          return patcherAPI.loginToken;
+        }
+      })
+    }
   }
   private determineApiDetails() {
     // TODO remove this when there are channel based API's
@@ -94,8 +107,7 @@ export function deleteJSON(endpoint: string, requireAuth: boolean = false, query
     method: 'delete',
     headers: headers
   })
-    .then(RestUtil.checkStatus)
-    .then(RestUtil.parseJSON);
+    .then(RestUtil.checkStatus);    // no response body for a DELETE
 }
 
 export function postJSON(endpoint: string, requireAuth: boolean = false, data: any = {}, query: any = {}, version: number = 1): Promise<any> {

@@ -31,6 +31,7 @@
 import * as React from 'react';
 export interface QuickSelectProps {
     items: Array<any>;
+    selectedItemIndex?: any;
     activeViewComponentGenerator: (item: any) => any;
     listViewComponentGenerator: (item: any) => any;
     onSelectedItemChanged: (item: any) => void;
